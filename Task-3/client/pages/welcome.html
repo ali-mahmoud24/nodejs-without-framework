@@ -3,23 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="icon" type="image/x-icon" href="../icons/favicon.ico" />
-
+    <link rel="stylesheet" href="../styles/welcome.css" />
     <title>{name} profile</title>
   </head>
   <body>
-    <h1>Welcome {name}!</h1>
-    <ul>
-      <li>{mobile}</li>
-      <li>{email}</li>
-      <li>{address}</li>
-    </ul>
+    <div class="profile-card">
+      <h1>Welcome {name}!</h1>
+      <ul>
+        <li><b>Mobile:</b> {mobile}</li>
+        <li><b>Email:</b> {email}</li>
+        <li><b>Address:</b> {address}</li>
+      </ul>
+    </div>
 
-    <button id="load-clients">Show more</button>
-
+    <button id="load-clients" class="primary-btn">Show more</button>
     <ul id="client-list"></ul>
 
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal hidden">
+      <div class="modal-content">
+        <h2>Edit Client</h2>
+        <form id="edit-form">
+          <div class="form-group">
+            <input type="text" id="edit-name" placeholder="Name" />
+            <small class="error" id="edit-name-error"></small>
+        </div>
+          <div class="form-group">
+            <input type="tel" id="edit-mobile" placeholder="Mobile" />
+            <small class="error" id="edit-mobile-error"></small>
+          </div>
+          <div class="form-group">
+            <input type="email" id="edit-email" placeholder="Email" />
+            <small class="error" id="edit-email-error"></small>
+          </div>
+          <div class="form-group">
+            <input type="text" id="edit-address" placeholder="Address" />
+            <small class="error" id="edit-address-error"></small>
+          </div>
+          <div class="modal-actions">
+            <button type="submit" class="primary-btn">Save</button>
+            <button type="button" id="close-modal" class="secondary-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <script src="../scripts/script.js"></script>
+    <script src="../scripts/welcome-validation.js"></script>
   </body>
 </html>
